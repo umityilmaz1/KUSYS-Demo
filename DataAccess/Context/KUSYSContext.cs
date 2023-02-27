@@ -2,8 +2,7 @@
 using Model.Base;
 using Model.Entity;
 
-
-namespace DataAccess.Context
+namespace Repository.Context
 {
     public class KUSYSContext : DbContext
     {
