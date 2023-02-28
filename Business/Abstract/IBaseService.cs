@@ -1,8 +1,9 @@
-﻿using System.Linq.Expressions;
+﻿using Model.Base;
+using System.Linq.Expressions;
 
 namespace Service.Abstract
 {
-    public interface IBaseService<TEntity>
+    public interface IBaseService<TEntity> where TEntity : BaseEntity
     {
         int Create(TEntity entity);
         int Update(TEntity entity);

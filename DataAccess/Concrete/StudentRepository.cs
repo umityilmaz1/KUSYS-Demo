@@ -5,7 +5,7 @@ using Model.Entity;
 
 namespace Repository.Concrete
 {
-    public class StudentRepository : EFRepositoryBase<Student, KUSYSContext>, ICourseRepository
+    public class StudentRepository : EFRepositoryBase<Student, KUSYSContext>, IStudentRepository
     {             
         
     }

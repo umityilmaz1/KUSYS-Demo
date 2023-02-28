@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32319.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KUSYS-Demo", "KUSYS-Demo\KUSYS-Demo.csproj", "{94A0852B-2D6A-4666-AA4C-48A81A315A15}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{2BDCD0C8-FCAA-4DAF-8316-BDFB5701D14C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{2BDCD0C8-FCAA-4DAF-8316-BDFB5701D14C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model", "Model\Model.csproj", "{AEF35985-2B34-4D8D-A7C4-4106CB89CE4D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{AEF35985-2B34-4D8D-A7C4-4106CB89CE4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "DataAccess\Repository.csproj", "{3D646204-911C-4AE8-B0FC-44EEB5E0C5BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "DataAccess\Repository.csproj", "{3D646204-911C-4AE8-B0FC-44EEB5E0C5BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service", "Business\Service.csproj", "{6279CF15-352D-4DA1-9C66-454037646BB5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Business\Service.csproj", "{6279CF15-352D-4DA1-9C66-454037646BB5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KUSYS-Demo", "KUSYS-Demo\KUSYS-Demo.csproj", "{C80B55B7-62CB-48F5-8F0A-39DF125E72A8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{94A0852B-2D6A-4666-AA4C-48A81A315A15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{94A0852B-2D6A-4666-AA4C-48A81A315A15}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{94A0852B-2D6A-4666-AA4C-48A81A315A15}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{94A0852B-2D6A-4666-AA4C-48A81A315A15}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2BDCD0C8-FCAA-4DAF-8316-BDFB5701D14C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2BDCD0C8-FCAA-4DAF-8316-BDFB5701D14C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2BDCD0C8-FCAA-4DAF-8316-BDFB5701D14C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +35,10 @@ Global
 		{6279CF15-352D-4DA1-9C66-454037646BB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6279CF15-352D-4DA1-9C66-454037646BB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6279CF15-352D-4DA1-9C66-454037646BB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C80B55B7-62CB-48F5-8F0A-39DF125E72A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C80B55B7-62CB-48F5-8F0A-39DF125E72A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C80B55B7-62CB-48F5-8F0A-39DF125E72A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C80B55B7-62CB-48F5-8F0A-39DF125E72A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

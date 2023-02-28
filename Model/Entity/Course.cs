@@ -9,6 +9,7 @@ namespace Model.Entity
             Students = new List<Student>();
         }
 
+        public string Code { get; set; }
         public string Name { get; set; }
         public virtual List<Student> Students { get; set; }
     }
