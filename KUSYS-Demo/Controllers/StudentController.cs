@@ -22,59 +22,87 @@ namespace KUSYS_Demo.Controllers
         public ActionResult Index()
         {
             var students = _studentService.GetList(a => a.IsActive);
-            var response = _mapper.Map<List<StudentIndexDto>>(students);
+            var response = _mapper.Map<List<StudentIndexViewModel>>(students);
             return View(response);
         }
 
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
+        //public ActionResult Details(int id)
+        //{
+        //    return View();
+        //}
 
-        [HttpPost]
-        public ActionResult Create(StudentIndexDto studentIndexDto)
+        public ActionResult Create()
         {
-            var student = _mapper.Map<Student>(studentIndexDto);
-            _studentService.Create(student);
-            return Redirect("Index");
+            var viewModel = new StudentIndexViewModel();
+            return View("CreateOrUpdate", viewModel);
         }
 
         [Route("/Student/Edit/{id}")]
         public ActionResult Edit(int id)
         {
             var student = _studentService.GetById(id);
-            var response = _mapper.Map<StudentIndexDto>(student);
-            return Json(response);
+            var viewModel = _mapper.Map<StudentIndexViewModel>(student);
+            return View("CreateOrUpdate", viewModel);
         }
 
         [HttpPost]
-        public ActionResult Edit(StudentIndexDto studentIndexDto)
+        public ActionResult SaveOrUpdate(StudentIndexViewModel studentIndexDto)
         {
-            var student = _mapper.Map<Student>(studentIndexDto);
-            _studentService.Update(student);
+            if (studentIndexDto.ID == 0)
+            {
+                var student = _mapper.Map<Student>(studentIndexDto);
+                _studentService.Create(student);
+            }
+            else
+            {
+                var student = _studentService.GetById(studentIndexDto.ID);
+                var updatedStudent = _mapper.Map(studentIndexDto, student);
+                _studentService.Update(updatedStudent);
+            }
+
             return Redirect("Index");
         }
 
-        // GET: StudentController/Delete/5
+        [Route("/Student/Delete/{id}")]
         public ActionResult Delete(int id)
         {
-           // _studentService.Delete(id);
-            return View();
+            var student = _studentService.GetById(id);
+            _studentService.Delete(student);
+            return RedirectToAction("Index");
         }
 
-        // POST: StudentController/Delete/5
+        [Route("/Student/MatchCourseToStudent/{studentId}/{courseId}")]
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public JsonResult MatchCourseToStudent(int studentId, int courseId)
         {
-            try
+            var course = _courseService.GetById(courseId);
+            var student = _studentService.GetById(studentId);
+
+            if (student != null && course != null)
             {
-                return RedirectToAction(nameof(Index));
+                student.Courses.Add(course);
+                _studentService.Update(student);
+                return Json(true);
             }
-            catch
+
+            return Json(false);
+        }
+
+        [Route("/Student/RemoveCourseFromStudent/{studentId}/{courseId}")]
+        [HttpPost]
+        public JsonResult RemoveCourseFromStudent(int studentId, int courseId)
+        {
+            var course = _courseService.GetById(courseId);
+            var student = _studentService.GetById(studentId);
+
+            if (student != null && course != null)
             {
-                return View();
+                student.Courses.Remove(course);
+                _studentService.Update(student);
+                return Json(true);
             }
+
+            return Json(false);
         }
     }
 }

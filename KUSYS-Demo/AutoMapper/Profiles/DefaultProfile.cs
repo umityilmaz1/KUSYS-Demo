@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using KUSYS_Demo.Models.Course;
 using KUSYS_Demo.Models.Student;
 using Model.Entity;
 
@@ -8,8 +9,12 @@ namespace KUSYS_Demo.AutoMapper.Profiles
 	{
 		public DefaultProfile()
 		{
-			CreateMap<Student, StudentIndexDto>();
-			CreateMap<StudentIndexDto, Student>();
+			CreateMap<Student, StudentIndexViewModel>();
+			CreateMap<StudentIndexViewModel, Student>();
+
+			CreateMap<Course, CourseViewModel>();
+			CreateMap<CourseViewModel, Course>();
+
 		}
 	}
 }

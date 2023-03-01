@@ -1,6 +1,6 @@
 ﻿namespace KUSYS_Demo.Models.Student
 {
-    public class StudentIndexDto
+    public class StudentIndexViewModel
     {
         public int ID { get; set; }
         public string FirstName { get; set; }

@@ -16,7 +16,7 @@ namespace Repository.Context
                                                           .Build();
 
             var connectionString = configuration.GetConnectionString(_defaultConnectionStringName);
-            optionsBuilder.UseSqlServer(connectionString);
+            optionsBuilder.UseLazyLoadingProxies().UseSqlServer(connectionString);
         }
         protected override void OnModelCreating(ModelBuilder builder)
         {

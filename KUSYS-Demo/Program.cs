@@ -5,6 +5,7 @@ using Repository.Concrete;
 using Repository.Context;
 using Service.Abstract;
 using Service.Concrete;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
