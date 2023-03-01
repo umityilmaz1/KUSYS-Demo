@@ -1,5 +1,10 @@
+using KUSYS_Demo.AutoMapper.Profiles;
 using Microsoft.EntityFrameworkCore;
+using Repository.Abstract;
+using Repository.Concrete;
 using Repository.Context;
+using Service.Abstract;
+using Service.Concrete;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +12,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<KUSYSContext>();
+
+builder.Services.AddTransient<IStudentService, StudentService>();
+builder.Services.AddTransient<IStudentRepository, StudentRepository>();
+builder.Services.AddTransient<ICourseService, CourseService>();
+builder.Services.AddTransient<ICourseRepository, CourseRepository>();
+
+builder.Services.AddAutoMapper(typeof(DefaultProfile));
 
 var app = builder.Build();
 
@@ -35,6 +47,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Student}/{action=Index}");
 
 app.Run();

@@ -32,20 +32,20 @@ namespace Repository.Context
 
         private void SetCreateDateOfAddedEntries()
         {
-            var addedEntries = ChangeTracker.Entries().Where(e => e.Entity is BaseEntity && (e.State == EntityState.Added)).Cast<BaseEntity>();
+            var addedEntries = ChangeTracker.Entries().Where(e => e.Entity is BaseEntity && (e.State == EntityState.Added));
 
-            foreach (BaseEntity addedEntry in addedEntries)
+            foreach (var addedEntry in addedEntries)
             {
-                addedEntry.CreatedDate = DateTime.Now;
+                addedEntry.CurrentValues[nameof(Student.CreatedDate)] = DateTime.Now;
             }
         }
         private void SetUpdateDateOfUpdatedEntries()
         {
-            var updatedEntries = ChangeTracker.Entries().Where(e => e.Entity is BaseEntity && (e.State == EntityState.Modified)).Cast<BaseEntity>();
+            var updatedEntries = ChangeTracker.Entries().Where(e => e.Entity is BaseEntity && (e.State == EntityState.Modified));
 
-            foreach (BaseEntity updatedEntry in updatedEntries)
+            foreach (var updatedEntry in updatedEntries)
             {
-                updatedEntry.UpdatedDate = DateTime.Now;
+                updatedEntry.CurrentValues[nameof(Student.UpdatedDate)] = DateTime.Now;
             }
         }
 

@@ -5,10 +5,10 @@ using System.Linq.Expressions;
 
 namespace Service.Concrete
 {
-    public class CourseBusiness : IBaseService<Course>
+    public class CourseService : ICourseService
     {
         ICourseRepository _courseRepository;
-        public CourseBusiness(ICourseRepository courseRepository)
+        public CourseService(ICourseRepository courseRepository)
         {
             _courseRepository = courseRepository;
         }

@@ -2,7 +2,7 @@
 
 namespace Service.Abstract
 {
-    public interface ICourceService : IBaseService<Course>
+    public interface ICourseService : IBaseService<Course>
     {
     }
 }
