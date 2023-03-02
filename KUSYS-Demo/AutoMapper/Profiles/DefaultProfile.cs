@@ -15,6 +15,8 @@ namespace KUSYS_Demo.AutoMapper.Profiles
 			CreateMap<Course, CourseViewModel>();
 			CreateMap<CourseViewModel, Course>();
 
+			CreateMap<Student, DetailsViewModel>().ForMember(dest => dest.Courses, opt => opt.MapFrom(src => src.Courses))
+												  .ForMember(dest => dest.BirthDate, opt => opt.MapFrom(src => src.BirthDate.ToString("dd.MM.yyyy")));
 		}
 	}
 }

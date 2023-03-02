@@ -26,11 +26,6 @@ namespace KUSYS_Demo.Controllers
             return View(response);
         }
 
-        //public ActionResult Details(int id)
-        //{
-        //    return View();
-        //}
-
         public ActionResult Create()
         {
             var viewModel = new StudentIndexViewModel();
@@ -103,6 +98,15 @@ namespace KUSYS_Demo.Controllers
             }
 
             return Json(false);
+        }
+
+        [Route("/Student/Details/{studentId}")]
+        [HttpGet]
+        public JsonResult Details(int studentId)
+        {
+            var student = _studentService.GetById(studentId);
+            var response = _mapper.Map<DetailsViewModel>(student);
+            return Json(response);
         }
     }
 }
